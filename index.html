@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jivanData - find the best doctors</title>
+  <style>
+    .card {
+      transition: .5s;
+    }
+
+    .card:hover {
+      transform: translateY(-15px);
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">JivanData</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Patient_login.html">Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Doctor</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More
+            </a>
+            <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 border-0 shadow w-220px" data-bs-theme="dark">
+              <li><a class="dropdown-item rounded-2" href="#">Action</a></li>
+              <li>
+                <a class="dropdown-item rounded-2" href="#">Another action</a>
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2" href="#">Something else here</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item rounded-2" href="#">Separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        </form>
+        <button class="btn btn-outline-success me-2" type="login">
+          Login
+        </button>
+        <button type="button" class="btn btn-warning">Sign-up</button>
+      </div>
+    </div>
+  </nav>
+  <div id="myCarousel" class="carousel carousel-fade slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
+        aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="1.jpg" class="d-block w-100" alt="..." />
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Welcome to Jivandata</h1>
+            <p class="opacity-75">Find a suitable doctor for your problem.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Book now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img src="2.jpg" class="d-block w-100" alt="..." />
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>AI based time scheduling</h1>
+            <p>See the avalability of Doctors with the help of AI</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="3.jpg" class="d-block w-100" alt="..." />
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>
+              Some representative placeholder content for the third slide of
+              this carousel.
+            </p>
+            <p>
+              <a class="btn btn-lg btn-primary" href="#">Browse gallery</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container my-5">
+    <ul class="nav nav-pills justify-content-sm-center mb-4 px-3 bg-info bg-opacity-10 rounded-3" id="course-pills-tab"
+      role="tablist" data-aos="fade-down" data-aos-duration="1000" data-aos-offset="300">
+      <!-- Tab item -->
+      <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill"
+          data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1"
+          aria-selected="true" onclick="btn1()">Specialties</button>
+      </li>
+      <!-- Tab item -->
+      <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill"
+          data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"
+          aria-selected="false" tabindex="-1" onclick="btn2()">Find Hospitals</button>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="row mb-4" id="Hospital" style="display: none;">
+    <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="10">
+      <h2 class="fs-1">Find A Suitable Hospital</h2>
+      <p class="mb-0">Choose any specialization and find doctors</p>
+    </div>
+  </div>
+
+  <div class="row mb-4" id="Specialties">
+    <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="fs-1">Meet Our Best Doctors</h2>
+      <p class="mb-0">Choose any specialization and find doctors</p>
+    </div>
+  </div>
+
+
+  <div class="container px-4 py-5" id="custom-cards" >
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col" data-aos="fade-right">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src="neuro.jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Neurologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" data-aos="fade-up">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src="Gastro.jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Gastroenterologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" data-aos="fade-left">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src="derma.jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Dermatologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col" data-aos="fade-right">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src="gyno.jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Gynecologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" data-aos="fade-up">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src=".jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Neurologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" data-aos="fade-left">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src=".jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Neurologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col" data-aos="fade-right">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src=".jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-center text-white text-shadow-1">
+              <h3 class="pt-5 mt-auto mb-5 display-7 lh-1 fw-bold">Neurologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" data-aos="fade-up">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src=".jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-white text-shadow-1">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Neurologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col" data-aos="fade-left">
+        <a href="Patient_login.html">
+          <div class="card card-cover h-95 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="width: 25rem">
+            <img src=".jpg" class="card-img" alt="...">
+            <div class="d-flex flex-column h-100 p-5 pb-3 card-img-overlay text-white text-shadow-1">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Neurologist</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5" id="custom-cards1" style="display: none;">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm text-center">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content.
+                This content is a little bit longer.</p>
+              <button type="button" class="btn btn-primary rounded-pill px-4">View</button>
+            </div>
+        </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm text-center">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content.
+                This content is a little bit longer.</p>
+              <button type="button" class="btn btn-primary rounded-pill px-4">View</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm text-center">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content.
+                This content is a little bit longer.</p>
+              <button type="button" class="btn btn-primary rounded-pill px-4">View</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 my-2">
+        <div class="col">
+          <div class="card shadow-sm text-center">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content.
+                This content is a little bit longer.</p>
+              <button type="button" class="btn btn-primary rounded-pill px-4">View</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm text-center">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content.
+                This content is a little bit longer.</p>
+              <button type="button" class="btn btn-primary rounded-pill px-4">View</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm text-center">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content.
+                This content is a little bit longer.</p>
+              <button type="button" class="btn btn-primary rounded-pill px-4">View</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1500,
+      offset: 300,
+
+    });
+  </script>
+
+  <script>
+    function btn1() {
+      document.getElementById('custom-cards').style.display = ''
+      document.getElementById('Specialties').style.display = ''
+      document.getElementById('Hospital').style.display = 'none'
+      document.getElementById('custom-cards1').style.display = 'none'
+
+    }
+    function btn2() {
+      document.getElementById('custom-cards1').style.display = ''
+      document.getElementById('Hospital').style.display = ''
+      document.getElementById('custom-cards').style.display = 'none'
+      document.getElementById('Specialties').style.display = 'none'
+    }
+  </script>
+</body>
+
+</html>
